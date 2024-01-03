@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>上傳考古題</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>上傳考古題</h1>
+
+    <div class="form-container">
+        <form id="uploadForm" action="your-backend-endpoint" method="post" enctype="multipart/form-data">
+            <label for="semesterSelect">選擇學期:</label>
+            <select id="semesterSelect" name="semester" required>
+                <option value="1-1">大一上學期</option>
+                <option value="1-2">大一下學期</option>
+                <option value="2-1">大二上學期</option>
+                <option value="2-2">大二下學期</option>
+                <option value="3-1">大三上學期</option>
+                <option value="3-2">大三下學期</option>
+                <option value="4-1">大四上學期</option>
+                <option value="4-2">大四下學期</option>
+            </select>
+
+            <label for="courseSelect">選擇課程:</label>
+            <select id="courseSelect" name="courseName" required>
+                <!-- 課程選項將根據學期動態生成 -->
+            </select>
+
+            <input type="file" name="examFile" required>
+            <button type="submit" class="submit-button">上傳</button>
+        </form>
+    </div>
+
+    <script src="js/drow-down-menu-semester.js"></script>
+</body>
+</html>

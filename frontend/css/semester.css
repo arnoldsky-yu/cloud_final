@@ -1,0 +1,66 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fdf1e4; /* 淡黃色背景 */
+    margin: 20px;
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    color: rgb(107, 71, 24);
+    margin-bottom: 20px;
+}
+
+.corner-link {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.homepage-link {
+    color: rgb(105, 69, 22);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin: 10px auto;
+    padding: 15px;
+    width: 100px;
+    background-color: rgb(216, 178, 129);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.homepage-link:hover {
+    background-color: rgb(179, 112, 50);
+    color: #fff;
+}
+
+.exam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    margin: 0px auto; /* 調整margin-top值，使內容往下移動 */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid rgb(107, 71, 24);
+    border-radius: 5px;
+}
+
+.exam-link {
+    color: rgb(218, 187, 146);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin: 15px auto;
+    padding: 20px;
+    width: 250px;
+    background-color: rgb(107, 71, 24);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.exam-link:hover {
+    background-color: rgb(185, 128, 54);
+    color: #fff;
+}
