@@ -1,4 +1,3 @@
-
 const coursesBySemester = {
     "1-1": ["計算機概論（上）", "線性代數", "微積分", "嵌入式系統"],
     "1-2": ["計算機概論（下）", "離散數學"],
@@ -13,20 +12,30 @@ const coursesBySemester = {
 function updateCourseOptions() {
     const semesterSelect = document.getElementById('semesterSelect');
     const courseSelect = document.getElementById('courseSelect');
-    const selectedSemester = semesterSelect.value;
+    const schoolYearInput = document.getElementById('schoolYearInput');
+    const fileInput = document.querySelector('input[type="file"]');
 
+    const semester = semesterSelect.value;
+    const schoolYear = schoolYearInput.value;
+    
     while (courseSelect.firstChild) {
         courseSelect.removeChild(courseSelect.firstChild);
     }
 
-    coursesBySemester[selectedSemester].forEach(course => {
+    coursesBySemester[semester].forEach(course => {
         const option = document.createElement('option');
         option.value = course;
         option.textContent = course;
         courseSelect.appendChild(option);
     });
+
+    if (schoolYear && semester) {
+        const course = courseSelect.value.replace(/\s+/g, '_');
+        fileInput.name = `${schoolYear}_${semester}_${course}`;
+    }
 }
 
 document.getElementById('semesterSelect').addEventListener('change', updateCourseOptions);
+document.getElementById('schoolYearInput').addEventListener('change', updateCourseOptions);
 
 updateCourseOptions();

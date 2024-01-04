@@ -10,6 +10,7 @@
 
     <div class="form-container">
         <form id="uploadForm" action="your-backend-endpoint" method="post" enctype="multipart/form-data">
+            /*remember to change endpoint*/
             <label for="semesterSelect">選擇學期:</label>
             <select id="semesterSelect" name="semester" required>
                 <option value="1-1">大一上學期</option>
@@ -26,11 +27,37 @@
             <select id="courseSelect" name="courseName" required>
             </select>
 
-            <input type="file" name="examFile" required>
+            <input type="text" id="schoolYearInput" name="schoolYear" placeholder="學年度" required>
+
+            <input type="file" name="uploadFile" accept=".jpg, .jpeg, .png, .pdf" required>
             <button type="submit" class="submit-button">上傳</button>
         </form>
     </div>
 
     <script src="js/drow-down-menu-semester.js"></script>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // still need to change
+                } else {
+                    throw new Error('上傳失敗');
+                }
+            })
+            .then(data => {
+                alert('上傳成功');
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+        });
+    </script>
 </body>
 </html>

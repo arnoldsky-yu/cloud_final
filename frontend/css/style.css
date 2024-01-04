@@ -112,3 +112,8 @@ a {
 .submit-button:hover {
     background-color: rgb(179, 112, 50);
 }
+
+input[name="schoolYearInput"] {
+    width: auto; 
+    max-width: 50%; 
+}
