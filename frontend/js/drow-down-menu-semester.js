@@ -8,6 +8,29 @@ const coursesBySemester = {
     "4-1": ["系選修"],
     "4-2": ["無"],
 };
+const courseNameMap = {
+    "計算機概論（上）": "IntroComputing1",
+    "線性代數": "LinearAlgebra",
+    "微積分": "Calculus",
+    "嵌入式系統": "EmbeddedSystems",
+    "計算機概論（下）": "IntroComputing1",
+    "離散數學": "DiscreteMath",
+    "工程數學": "EngineeringMath",
+    "資料結構": "DataStructures",
+    "電路實驗": "CircuitExperiments",
+    "電路學": "CircuitTheory",
+    "數位邏輯電路設計": "DigitalLogicCircuitDesign",
+    "物件導向程式設計": "ObjectOrientedProgramming",
+    "計算機組織": "ComputerOrganization",
+    "資料結構": "DataStructures",
+    "電子學": "Electronics",
+    "計算機網路": "ComputerNetworks",
+    "機率與統計": "ProbabilityAndStatistics",
+    "作業系統": "OperatingSystems",
+    "程式語言": "ProgrammingLanguages",
+    "演算法分析": "AlgorithmAnalysis",
+    "系選修": "DepartmentElectives"
+};
 
 function updateCourseOptions() {
     const semesterSelect = document.getElementById('semesterSelect');
@@ -16,23 +39,17 @@ function updateCourseOptions() {
     const fileInput = document.querySelector('input[type="file"]');
 
     const semester = semesterSelect.value;
-    const schoolYear = schoolYearInput.value;
-    
+
     while (courseSelect.firstChild) {
         courseSelect.removeChild(courseSelect.firstChild);
     }
 
     coursesBySemester[semester].forEach(course => {
         const option = document.createElement('option');
-        option.value = course;
+        option.value = courseNameMap[course];
         option.textContent = course;
         courseSelect.appendChild(option);
     });
-
-    if (schoolYear && semester) {
-        const course = courseSelect.value.replace(/\s+/g, '_');
-        fileInput.name = `${schoolYear}_${semester}_${course}`;
-    }
 }
 
 document.getElementById('semesterSelect').addEventListener('change', updateCourseOptions);
